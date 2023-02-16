@@ -915,6 +915,10 @@ img {
   padding: 0.25rem 0.5rem 0.5rem 0;
 }
 
+.contact__link {
+  cursor: pointer;
+}
+
 /*==================== FOOTER ====================*/
 .footer {
   padding-top: 2rem;

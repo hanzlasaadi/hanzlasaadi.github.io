@@ -895,7 +895,11 @@
               <p class="project__description">
                 Contact me now and get a 30% discount
               </p>
-              <a href="#contact" class="button button--flex button--white">
+              <a
+                href="mailto:hanzalasaadi@gmail.com"
+                target="_blank"
+                class="button button--flex button--white"
+              >
                 Contact Me
                 <i class="uil uil-message project__icon button__icon"></i>
               </a>
@@ -1018,23 +1022,27 @@
         <div class="contact__container container grid">
           <div>
             <div class="contact__information">
-              <i class="uil uil-phone contact-icon"></i>
-              <div>
-                <h3 class="contact__title">Call Me</h3>
-                <span class="contact__subtitle">0311-6107183</span>
-              </div>
+              <i class="uil uil-phone contact-icon"></i> &nbsp;
+              <a href="tel:+923116107183" target="_blank">
+                <div class="contact__link">
+                  <h3 class="contact__title">Call Me</h3>
+                  <span class="contact__subtitle">0311-6107183</span>
+                </div>
+              </a>
             </div>
 
             <div class="contact__information">
-              <i class="uil uil-envelope contact-icon"></i>
-              <div>
-                <h3 class="contact__title">E-mail</h3>
-                <span class="contact__subtitle">hanzalasaadi@gmail.com</span>
-              </div>
+              <i class="uil uil-envelope contact-icon"></i>&nbsp;
+              <a href="mailto:hanzalasaadi@gmail.com" target="_blank">
+                <div class="contact__link">
+                  <h3 class="contact__title">E-mail</h3>
+                  <span class="contact__subtitle">hanzalasaadi@gmail.com</span>
+                </div>
+              </a>
             </div>
 
             <div class="contact__information">
-              <i class="uil uil-map-marker contact-icon"></i>
+              <i class="uil uil-map-marker contact-icon"></i>&nbsp;
               <div>
                 <h3 class="contact__title">Location</h3>
                 <span class="contact__subtitle">Lahore - Pakistan</span>
@@ -1044,6 +1052,7 @@
 
           <form
             action="mailto:hanzalasaadi@gmail.com"
+            target="_blank"
             method="post"
             enctype="text/plain"
             class="contact__form grid"
