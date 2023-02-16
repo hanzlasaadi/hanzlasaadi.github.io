@@ -410,6 +410,13 @@ img {
   color: var(--first-color-alt);
 }
 
+.button__submit {
+  cursor: pointer;
+  border: none;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
 /*==================== ABOUT ====================*/
 .about__img {
   width: 300px;
