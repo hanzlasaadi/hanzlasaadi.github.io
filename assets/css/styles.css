@@ -809,7 +809,7 @@ img {
 }
 
 .blur {
-  filter: blur(10px);
+  filter: blur(15px);
 }
 
 /*==================== PROJECT IN MIND ====================*/
