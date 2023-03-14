@@ -808,6 +808,10 @@ img {
   font-weight: 500;
 }
 
+.blur {
+  filter: blur(10px);
+}
+
 /*==================== PROJECT IN MIND ====================*/
 .project {
   text-align: center;
