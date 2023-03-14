@@ -801,6 +801,13 @@ img {
   outline: none;
 }
 
+.highlight {
+  font-weight: 500;
+}
+.highlight1 {
+  font-weight: 500;
+}
+
 /*==================== PROJECT IN MIND ====================*/
 .project {
   text-align: center;
