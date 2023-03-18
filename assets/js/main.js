@@ -139,9 +139,7 @@ function scrollActive() {
     const sectionId = current.getAttribute("id");
 
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document
-        .querySelector(".nav__menu a[href*=" + sectionId + "]")
-        .classList.add("active-link");
+      document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.add("active-link");
     } else {
       document
         .querySelector(".nav__menu a[href*=" + sectionId + "]")
@@ -179,20 +177,14 @@ const selectedTheme = localStorage.getItem("selected-theme");
 const selectedIcon = localStorage.getItem("selected-icon");
 
 // We obtain the current theme that the interface has by validating the dark-theme class
-const getCurrentTheme = () =>
-  document.body.classList.contains(darkTheme) ? "dark" : "light";
-const getCurrentIcon = () =>
-  themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun";
+const getCurrentTheme = () => (document.body.classList.contains(darkTheme) ? "dark" : "light");
+const getCurrentIcon = () => (themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun");
 
 // We validate if the user previously chose a topic
 if (selectedTheme) {
   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-    darkTheme
-  );
-  themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](
-    iconTheme
-  );
+  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
+  themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](iconTheme);
 }
 
 // Activate / deactivate the theme manually with the button
@@ -206,27 +198,37 @@ themeButton.addEventListener("click", () => {
 });
 
 // Lazy loading images
-const imgTargets = document.querySelectorAll("img[data-src]");
+document.addEventListener("DOMContentLoaded", () => {
+  const imgTargets = document.querySelectorAll("img[data-src]");
 
-const loadImg = function (entries, observer) {
-  const [entry] = entries;
+  const options = {
+    root: null,
+    threshold: 0,
+    rootMargin: "1000px",
+  };
 
-  if (!entry.isIntersecting) return;
+  if ("IntersectionObserver" in window) {
+    const imgObserver = new IntersectionObserver((entries, observer) => {
+      const [entry] = entries;
 
-  // Replace src with data-src
-  entry.target.src = entry.target.dataset.src;
+      if (!entry.isIntersecting) return;
 
-  entry.target.addEventListener("load", function () {
-    entry.target.classList.remove("blur");
-  });
+      // Replace src with data-src
+      entry.target.src = entry.target.dataset.src;
+      entry.target.classList.remove("blur");
 
-  observer.unobserve(entry.target);
-};
+      // entry.target.addEventListener("load", function () {
+      //   entry.target.classList.remove("blur");
+      // });
 
-const imgObserver = new IntersectionObserver(loadImg, {
-  root: null,
-  threshold: 0,
-  rootMargin: "1000px",
+      imgObserver.unobserve(entry.target);
+    }, options);
+
+    imgTargets.forEach((img) => imgObserver.observe(img));
+  } else {
+    imgTargets.forEach((img) => {
+      img.src = img.dataset.src;
+      img.classList.remove("blur");
+    });
+  }
 });
-
-imgTargets.forEach((img) => imgObserver.observe(img));
