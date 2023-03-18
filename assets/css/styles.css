@@ -791,6 +791,10 @@ img {
   bottom: -2.5rem;
 }
 
+.swiper-pagination {
+  margin-bottom: -4rem;
+}
+
 .swiper-pagination-bullet-active {
   background-color: var(--first-color);
 }
@@ -1077,6 +1081,10 @@ img {
     width: 200px;
   }
 
+  .swiper-pagination {
+    margin-bottom: -2rem;
+  }
+
   .testimonial__data,
   .testimonial__header {
     flex-direction: column;
@@ -1121,6 +1129,10 @@ img {
     grid-template-columns: 0.6fr;
     justify-content: center;
   }
+
+  /* .swiper-pagination {
+    margin-bottom: -4rem;
+  } */
 }
 
 @media screen and (min-width: 768px) {
@@ -1233,6 +1245,9 @@ img {
   }
   .portfolio__content {
     align-items: center;
+  }
+  .swiper-pagination {
+    margin-bottom: -6rem;
   }
 
   .project {
