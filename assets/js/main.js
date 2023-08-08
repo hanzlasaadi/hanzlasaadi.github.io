@@ -110,23 +110,23 @@ let swiperPortfolio = new Swiper(".portfolio__container", {
 });
 
 /*==================== TESTIMONIAL ====================*/
-// let swiperTestimonial = new Swiper(".testimonial__container", {
-//   loop: true,
-//   grabCursor: true,
-//   spaceBetween: 48,
+let swiperTestimonial = new Swiper(".testimonial__container", {
+  loop: true,
+  grabCursor: true,
+  spaceBetween: 48,
 
-//   pagination: {
-//     el: ".swiper-pagination",
-//     clickable: true,
-//     dynamicBullets: true,
-//   },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
 
-//   breakpoints: {
-//     568: {
-//       slidesPerView: 2,
-//     },
-//   },
-// });
+  breakpoints: {
+    568: {
+      slidesPerView: 2,
+    },
+  },
+});
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll("section[id]");
@@ -140,7 +140,9 @@ function scrollActive() {
     const sectionId = current.getAttribute("id");
 
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.add("active-link");
+      document
+        .querySelector(".nav__menu a[href*=" + sectionId + "]")
+        .classList.add("active-link");
     } else {
       document
         .querySelector(".nav__menu a[href*=" + sectionId + "]")
@@ -178,14 +180,20 @@ const selectedTheme = localStorage.getItem("selected-theme");
 const selectedIcon = localStorage.getItem("selected-icon");
 
 // We obtain the current theme that the interface has by validating the dark-theme class
-const getCurrentTheme = () => (document.body.classList.contains(darkTheme) ? "dark" : "light");
-const getCurrentIcon = () => (themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun");
+const getCurrentTheme = () =>
+  document.body.classList.contains(darkTheme) ? "dark" : "light";
+const getCurrentIcon = () =>
+  themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun";
 
 // We validate if the user previously chose a topic
 if (selectedTheme) {
   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
-  themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](iconTheme);
+  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
+    darkTheme
+  );
+  themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](
+    iconTheme
+  );
 }
 
 // Activate / deactivate the theme manually with the button
